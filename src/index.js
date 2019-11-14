@@ -1,4 +1,5 @@
 const commandList = require("./command-list");
+const utils = require("./utils");
 const Discord = require("discord.js");
 const client = new Discord.Client();
 require("dotenv").config();
@@ -18,8 +19,9 @@ client.on("ready", () => {
 
 // This reads the message and sends the appropriate command
 client.on("message", message => {
-    const response = commandList[message.content];
-    if (response) {
-        message.channel.send(response(message.content))
+    const parsedMessage = utils.parseMessage(message.content);
+    const processCommand = commandList[parsedMessage.command];
+    if (processCommand) {
+        message.channel.send(processCommand(message))
     }
 });
