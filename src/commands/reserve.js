@@ -17,22 +17,23 @@ const pushUser = (users, username) => {
 
 const reserve = (message, client) => {
   let rawdata = fs.readFileSync("./json/users.json");
-  let users = JSON.parse(rawdata).users;
+  let jsonData = JSON.parse(rawdata);
+  let users = jsonData.users;
   if (users.find(user => user.username === message.author.username)) {
     users = removeUser(users, message.author.username);
   } else {
     users.length < 4 ? pushUser(users, message.author.username) : users;
   }
 
-  users = { users };
+  jsonData.users = users;
 
-  fs.writeFileSync("./json/users.json", JSON.stringify(users, null, 2));
+  fs.writeFileSync("./json/users.json", JSON.stringify(jsonData, null, 2));
   client.channels
     .get(process.env.RESERVE_CHANNEL_ID)
     .fetchMessage(process.env.RESERVE_MESSAGE_ID)
     .then(editMessage => {
       editMessage.edit(
-        "```javascript\n" + JSON.stringify(users.users, null, 2) + "\n```"
+        "```javascript\n" + JSON.stringify(jsonData, null, 2) + "\n```"
       );
     });
 
