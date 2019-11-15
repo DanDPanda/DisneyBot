@@ -1,5 +1,3 @@
-const ping = require("./commands/ping");
-
 module.exports = {
-  ping
+  "!ping": require("./commands/ping")
 };
