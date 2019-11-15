@@ -1,4 +1,5 @@
 const fs = require("fs");
+require("dotenv").config();
 
 const removeUser = (users, username) => {
   return users.filter(user => user.username !== username);
@@ -26,12 +27,9 @@ const reserve = (message, client) => {
   users = { users };
 
   fs.writeFileSync("./json/users.json", JSON.stringify(users, null, 2));
-  console.log(
-    client.channels.get("643960232988377124").fetchMessage("644712642203615242")
-  );
   client.channels
-    .get("643960232988377124")
-    .fetchMessage("644712642203615242")
+    .get(process.env.RESERVE_CHANNEL_ID)
+    .fetchMessage(process.env.RESERVE_MESSAGE_ID)
     .then(editMessage => {
       editMessage.edit(
         "```javascript\n" + JSON.stringify(users.users, null, 2) + "\n```"
