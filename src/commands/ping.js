@@ -1,3 +1,3 @@
-const ping = (message) => "pong";
+const ping = (message, client) => "pong";
 
 module.exports = ping;

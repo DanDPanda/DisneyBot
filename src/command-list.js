@@ -1,3 +1,4 @@
 module.exports = {
-  "!ping": require("./commands/ping")
+  "!ping": require("./commands/ping"),
+  "!reserve": require("./commands/reserve")
 };

@@ -22,6 +22,9 @@ client.on("message", message => {
   const parsedCommand = message.content.split(" ")[0];
   const commandFunction = commandList[parsedCommand];
   if (commandFunction) {
-    message.channel.send(commandFunction(message));
+    const commandMessage = commandFunction(message, client);
+    if (commandMessage) {
+      message.channel.send(commandMessage);
+    }
   }
 });
