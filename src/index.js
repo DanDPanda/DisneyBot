@@ -1,7 +1,9 @@
-const commandList = require("./command-list");
-const dailyEpisodeCheck = require("./daily-episode-check");
+const cron = require("node-cron");
 const Discord = require("discord.js");
 const client = new Discord.Client();
+
+const commandList = require("./command-list");
+const dailyEpisodeCheck = require("./daily-episode-check");
 require("dotenv").config();
 
 // Attemps to connect to Discord
