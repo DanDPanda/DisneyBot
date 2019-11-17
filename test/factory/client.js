@@ -5,7 +5,8 @@ const client = {
   channels: {
     get: _ => ({
       fetchMessage: _ =>
-        new Promise((resolve, reject) => resolve({ edit: () => null }))
+        new Promise((resolve, reject) => resolve({ edit: () => null })),
+      send: _ => null
     })
   }
 };
