@@ -11,22 +11,22 @@ describe("dailyEpisodeCheck", () => {
         episodes: [
           {
             date: "11/22/2099, 12:00:00 AM",
-            serverId: "643928482937831448",
+            serverType: "SW",
             title: "The Mandalorian Episode 3"
           },
           {
             date: "11/22/2099, 12:00:00 AM",
-            serverId: "643928482937831448",
+            serverType: "SW",
             title: "The Mandalorian Episode 3"
           },
           {
             date: "11/22/2000, 12:00:00 AM",
-            serverId: "643928482937831448",
+            serverType: "SW",
             title: "The Mandalorian Episode 3"
           },
           {
             date: "11/22/2000, 12:00:00 AM",
-            serverId: "643928482937831448",
+            serverType: "SW",
             title: "The Mandalorian Episode 3"
           }
         ]
@@ -44,12 +44,12 @@ describe("dailyEpisodeCheck", () => {
           episodes: [
             {
               date: "11/22/2099, 12:00:00 AM",
-              serverId: "643928482937831448",
+              serverType: "SW",
               title: "The Mandalorian Episode 3"
             },
             {
               date: "11/22/2099, 12:00:00 AM",
-              serverId: "643928482937831448",
+              serverType: "SW",
               title: "The Mandalorian Episode 3"
             }
           ]
@@ -66,12 +66,12 @@ describe("dailyEpisodeCheck", () => {
     expect(result).toEqual([
       {
         date: "11/22/2000, 12:00:00 AM",
-        serverId: "643928482937831448",
+        serverType: "SW",
         title: "The Mandalorian Episode 3"
       },
       {
         date: "11/22/2000, 12:00:00 AM",
-        serverId: "643928482937831448",
+        serverType: "SW",
         title: "The Mandalorian Episode 3"
       }
     ]);

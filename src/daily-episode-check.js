@@ -1,4 +1,10 @@
 const fs = require("fs");
+require("dotenv").config();
+
+const channelIds = {
+  MARVEL: process.env.MARVEL_CHANNEL_ID,
+  SW: process.env.SW_CHANNEL_ID
+};
 
 const dailyEpisodeCheck = client => {
   let rawdata = fs.readFileSync("./json/dates.json");
@@ -18,7 +24,9 @@ const dailyEpisodeCheck = client => {
   };
 
   sends.map(send => {
-    client.channels.get(send.serverId).send(`${send.title} is out!`);
+    client.channels
+      .get(channelIds[send.serverType])
+      .send(`${send.title} is out!`);
   });
 
   fs.writeFileSync("./json/dates.json", JSON.stringify(keeps, null, 2));
