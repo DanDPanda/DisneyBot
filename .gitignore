@@ -1,4 +1,4 @@
 node_modules
 .env
 coverage
-json
+json/users.json
