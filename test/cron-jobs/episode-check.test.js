@@ -1,10 +1,10 @@
-const dailyEpisodeCheck = require("../src/daily-episode-check");
-const sampleClient = require("./factory/client");
+const episodeCheck = require("../../src/cron-jobs/episode-check");
+const sampleClient = require("../factory/client");
 const fs = require("fs");
 
 jest.mock("fs");
 
-describe("dailyEpisodeCheck", () => {
+describe("episodeCheck", () => {
   beforeEach(() => {
     fs.readFileSync.mockReturnValue(
       JSON.stringify({
@@ -35,7 +35,7 @@ describe("dailyEpisodeCheck", () => {
   });
 
   test("should write to dates.json the episodes that weren't posted", () => {
-    dailyEpisodeCheck(sampleClient);
+    episodeCheck(sampleClient);
 
     expect(fs.writeFileSync.mock.calls[0][0]).toEqual("./json/dates.json");
     expect(fs.writeFileSync.mock.calls[0][1]).toEqual(
@@ -61,7 +61,7 @@ describe("dailyEpisodeCheck", () => {
   });
 
   test("should return the episodes that should be posted", () => {
-    const result = dailyEpisodeCheck(sampleClient);
+    const result = episodeCheck(sampleClient);
 
     expect(result).toEqual([
       {

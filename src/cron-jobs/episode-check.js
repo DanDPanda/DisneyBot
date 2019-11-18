@@ -6,7 +6,7 @@ const channelIds = {
   SW: process.env.SW_CHANNEL_ID
 };
 
-const dailyEpisodeCheck = client => {
+const episodeCheck = client => {
   let rawdata = fs.readFileSync("./json/dates.json");
   let jsonData = JSON.parse(rawdata).episodes;
 
@@ -34,4 +34,4 @@ const dailyEpisodeCheck = client => {
   return sends;
 };
 
-module.exports = dailyEpisodeCheck;
+module.exports = episodeCheck;

@@ -3,8 +3,8 @@ const Discord = require("discord.js");
 const client = new Discord.Client();
 
 const commandList = require("./command-list");
-const dailyEpisodeCheck = require("./daily-episode-check");
-const resetUsers = require("./reset-users");
+const episodeCheck = require("./cron-jobs/episode-check");
+const resetUsers = require("./cron-jobs/reset-users");
 require("dotenv").config();
 
 // Attemps to connect to Discord
@@ -16,10 +16,10 @@ try {
 
 // Schedule to check the episode dates
 cron.schedule("0 10 * * *", () => {
-  dailyEpisodeCheck();
+  episodeCheck();
 });
 
-// Schedule to check the episode dates
+// Schedule to remove anybody that is active
 cron.schedule("0 5 * * *", () => {
   resetUsers();
 });
@@ -34,6 +34,7 @@ client.on("ready", () => {
 client.on("message", message => {
   const parsedCommand = message.content.split(" ")[0];
   const commandFunction = commandList[parsedCommand];
+
   if (commandFunction) {
     const commandMessage = commandFunction(message, client);
     if (commandMessage) {

@@ -1,5 +1,5 @@
-const resetUsers = require("../src/reset-users");
-const sampleClient = require("./factory/client");
+const resetUsers = require("../../src/cron-jobs/reset-users");
+const sampleClient = require("../factory/client");
 const fs = require("fs");
 
 jest.mock("fs");
