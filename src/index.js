@@ -4,6 +4,7 @@ const client = new Discord.Client();
 
 const commandList = require("./command-list");
 const dailyEpisodeCheck = require("./daily-episode-check");
+const resetUsers = require("./reset-users");
 require("dotenv").config();
 
 // Attemps to connect to Discord
@@ -13,9 +14,14 @@ try {
   console.log("Discord is down");
 }
 
-// Schedule to check the date
-cron.schedule("0 9 * * *", () => {
+// Schedule to check the episode dates
+cron.schedule("0 10 * * *", () => {
   dailyEpisodeCheck();
+});
+
+// Schedule to check the episode dates
+cron.schedule("0 5 * * *", () => {
+  resetUsers();
 });
 
 // Message the client displays when ready
