@@ -16,12 +16,12 @@ try {
 
 // Schedule to check the episode dates
 cron.schedule("0 10 * * *", () => {
-  episodeCheck();
+  episodeCheck(client);
 });
 
 // Schedule to remove anybody that is active
 cron.schedule("0 5 * * *", () => {
-  resetUsers();
+  resetUsers(client);
 });
 
 // Message the client displays when ready
