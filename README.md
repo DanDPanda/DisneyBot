@@ -1,6 +1,3 @@
-# DisneyBot Features
-- At 9AM every morning, the bot will check if there are any new series that come out that day. If so, it will send a message to the channel.
-
 # DisneyBot CRON Jobs
 - `0 10 * * *`
   - Description:
