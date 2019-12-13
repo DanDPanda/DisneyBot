@@ -1,4 +1,4 @@
-import { reserve } from "../../src/commands/reserve";
+import { reserve } from "../../src/commands/reserve.mjs";
 import fs from "fs";
 
 jest.mock("fs");

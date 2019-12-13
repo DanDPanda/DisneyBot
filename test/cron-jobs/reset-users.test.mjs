@@ -1,4 +1,4 @@
-import resetUsers from "../../src/cron-jobs/reset-users";
+import resetUsers from "../../src/cron-jobs/reset-users.mjs";
 import sampleClient from "../factory/client.mjs";
 import fs from "fs";
 

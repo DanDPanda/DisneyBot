@@ -26,6 +26,17 @@
     "node-cron": "^2.0.3"
   },
   "jest": {
+    "testMatch": [
+      "**/__tests__/**/*.?(m)js?(x)",
+      "**/?(*.)(spec|test).?(m)js?(x)"
+    ],
+    "moduleFileExtensions": [
+      "js",
+      "json",
+      "jsx",
+      "node",
+      "mjs"
+    ],
     "collectCoverage": true,
     "collectCoverageFrom": [
       "src/**/*.{mjs,jsx}"

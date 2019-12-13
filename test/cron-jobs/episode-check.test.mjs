@@ -1,4 +1,4 @@
-import { episodeCheck } from "../../src/cron-jobs/episode-check";
+import { episodeCheck } from "../../src/cron-jobs/episode-check.mjs";
 import { sampleClient } from "../factory/client.mjs";
 import fs from "fs";
 
