@@ -1,6 +1,6 @@
-const resetUsers = require("../../src/cron-jobs/reset-users");
-const sampleClient = require("../factory/client");
-const fs = require("fs");
+import resetUsers from "../../src/cron-jobs/reset-users";
+import sampleClient from "../factory/client.mjs";
+import fs from "fs";
 
 jest.mock("fs");
 

@@ -1,5 +1,6 @@
-const fs = require("fs");
-require("dotenv").config();
+import fs from "fs";
+import dotenv from "dotenv";
+dotenv.config();
 
 const removeUser = (users, username) => {
   return users.filter(user => user.username !== username);
@@ -15,7 +16,7 @@ const pushUser = (users, username) => {
   return users.push(user);
 };
 
-const reserve = (message, client) => {
+export const reserve = (message, client) => {
   let rawdata = fs.readFileSync("./json/users.json");
   let jsonData = JSON.parse(rawdata);
   let users = jsonData.users;
@@ -39,5 +40,3 @@ const reserve = (message, client) => {
 
   return null;
 };
-
-module.exports = reserve;

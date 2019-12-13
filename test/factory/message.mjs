@@ -1,12 +1,10 @@
-const Chance = require("chance");
+import Chance from "chance";
 const chance = new Chance();
 
-const message = {
+export const message = {
   author: {
     username: chance.first(),
     tag: chance.first()
   },
   content: chance.sentence()
 };
-
-module.exports = message;

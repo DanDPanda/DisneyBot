@@ -3,9 +3,10 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "test": "jest --coverage",
-    "start": "node ./src/index.js",
+    "start": "node --experimental-modules ./src/index.mjs",
     "unit": "jest"
   },
   "repository": {
@@ -27,7 +28,7 @@
   "jest": {
     "collectCoverage": true,
     "collectCoverageFrom": [
-      "src/**/*.{js,jsx}"
+      "src/**/*.{mjs,jsx}"
     ],
     "coverageThreshold": {
       "global": {
@@ -38,8 +39,8 @@
       }
     },
     "coveragePathIgnorePatterns": [
-      "src/command-list.js",
-      "src/index.js"
+      "src/command-list.mjs",
+      "src/index.mjs"
     ]
   },
   "devDependencies": {

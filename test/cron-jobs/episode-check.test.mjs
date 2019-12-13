@@ -1,6 +1,6 @@
-const episodeCheck = require("../../src/cron-jobs/episode-check");
-const sampleClient = require("../factory/client");
-const fs = require("fs");
+import { episodeCheck } from "../../src/cron-jobs/episode-check";
+import { sampleClient } from "../factory/client.mjs";
+import fs from "fs";
 
 jest.mock("fs");
 

@@ -1,7 +1,7 @@
-const Chance = require("chance");
+import Chance from "chance";
 const chance = new Chance();
 
-const client = {
+export const client = {
   channels: {
     get: _ => ({
       fetchMessage: _ =>
@@ -10,5 +10,3 @@ const client = {
     })
   }
 };
-
-module.exports = client;

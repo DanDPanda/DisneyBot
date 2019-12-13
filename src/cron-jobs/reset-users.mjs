@@ -1,7 +1,8 @@
-const fs = require("fs");
-require("dotenv").config();
+import fs from "fs";
+import dotenv from "dotenv";
+dotenv.config();
 
-const resetUsers = client => {
+export const resetUsers = client => {
   let rawdata = fs.readFileSync("./json/users.json");
   let jsonData = JSON.parse(rawdata);
 
@@ -20,5 +21,3 @@ const resetUsers = client => {
 
   return null;
 };
-
-module.exports = resetUsers;

@@ -1,12 +1,13 @@
-const fs = require("fs");
-require("dotenv").config();
+import fs from "fs";
+import dotenv from "dotenv";
+dotenv.config();
 
 const channelIds = {
   MARVEL: process.env.MARVEL_CHANNEL_ID,
   SW: process.env.SW_CHANNEL_ID
 };
 
-const episodeCheck = client => {
+export const episodeCheck = client => {
   let rawdata = fs.readFileSync("./json/dates.json");
   let jsonData = JSON.parse(rawdata).episodes;
 
@@ -33,5 +34,3 @@ const episodeCheck = client => {
 
   return sends;
 };
-
-module.exports = episodeCheck;

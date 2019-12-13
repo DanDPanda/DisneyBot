@@ -1,13 +1,13 @@
-const reserve = require("../../src/commands/reserve");
-const fs = require("fs");
+import { reserve } from "../../src/commands/reserve";
+import fs from "fs";
 
 jest.mock("fs");
 describe("reserve", () => {
   let sampleMessage, sampleClient, sampleJSON;
 
   beforeEach(() => {
-    sampleMessage = require("../factory/message");
-    sampleClient = require("../factory/client");
+    sampleMessage = require("../factory/message.mjs");
+    sampleClient = require("../factory/client.mjs");
     const mockDate = new Date(1466424490000);
     jest.spyOn(global, "Date").mockImplementation(() => mockDate);
   });

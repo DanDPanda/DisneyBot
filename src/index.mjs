@@ -1,11 +1,12 @@
-const cron = require("node-cron");
-const Discord = require("discord.js");
+import cron from "node-cron";
+import Discord from "discord.js";
 const client = new Discord.Client();
+import dotenv from "dotenv";
+dotenv.config();
 
-const commandList = require("./command-list");
-const episodeCheck = require("./cron-jobs/episode-check");
-const resetUsers = require("./cron-jobs/reset-users");
-require("dotenv").config();
+import { commandList } from "./command-list.mjs";
+import { episodeCheck } from "./cron-jobs/episode-check.mjs";
+import { resetUsers } from "./cron-jobs/reset-users.mjs";
 
 // Attemps to connect to Discord
 try {

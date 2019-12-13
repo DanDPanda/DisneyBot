@@ -1,5 +1,5 @@
-const ping = require("../../src/commands/ping");
-const sampleMessage = require("../factory/message");
+import { ping } from "../../src/commands/ping";
+import { sampleMessage } from "../factory/message.mjs";
 
 describe("ping", () => {
   test("respond with pong", () => {
