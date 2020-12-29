@@ -3,6 +3,6 @@ const sampleMessage = require("../factory/message");
 
 describe("ping", () => {
   test("respond with pong", () => {
-    expect(ping(sampleMessage)).toEqual("poong");
+    expect(ping(sampleMessage)).toEqual("pooong");
   });
 });
